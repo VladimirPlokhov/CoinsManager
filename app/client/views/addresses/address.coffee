@@ -8,3 +8,16 @@ Template.addressItem.helpers
   name: ->
     name = this.constructor.name
     return name if name isnt 'Object'
+
+Template.addressItem.rendered = () ->
+  $( ".address .address_title" ).each (
+    () ->
+      cardHeaderWidth = $(this).width()
+      codeWidth = $(this).find('.coin_code').width()
+      addressWidth = cardHeaderWidth - codeWidth
+      $(this).find('.coin_address').truncate
+          width: addressWidth
+          token: '...'
+          side: 'center'
+          multiline: false
+  )
