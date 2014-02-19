@@ -20,7 +20,7 @@ Template.addressItem.rendered = () ->
       side: "center"
       multiline: false
 
-  $( ".address .address_title" ).each (
+  $(".address .address_title").each (
     () ->
       $this = $(this)
       $coinAddress = $this.find(".coin_address")
@@ -31,7 +31,8 @@ Template.addressItem.rendered = () ->
   )
 
   # Hover handler
-  $( ".address .address_title" ).hover (
+  $(".address").hover (
     () ->
-      $(this).find('.tip').addClass('is_active')
+      $(".address.is_active").removeClass("is_active").find(".tip").text("You can click on icons below")
+      $(this).addClass('is_active')
   )
