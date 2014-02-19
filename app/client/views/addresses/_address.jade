@@ -2,9 +2,10 @@ template(name="addressItem")
     div.address
         header
             h3.address_title
+                span.tip.copy(data-clipboard-text="{{address}}") Copy address to clipoard
                 span.coin_code
                     {{name}}:
-                span.coin_address(data-copy="{{address}}")
+                span.coin_address
                     {{address}}
         {{#ifNumber get_balance}}
         div.coin_balance
