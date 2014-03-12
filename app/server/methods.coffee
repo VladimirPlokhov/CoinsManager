@@ -43,11 +43,9 @@ Meteor.methods
     addressId = Addresses.insert options
     return addressId
 
-  remove_address: (attributes) ->
+  remove_address: (options) ->
     user = Meteor.user()
-    options =
-      address: attributes.address
-      userId: user._id
+    options.userId = user._id
 
     if not user
       throw new Meteor.Error 401, "You need to login to remove the address"
